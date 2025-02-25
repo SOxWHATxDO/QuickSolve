@@ -1,0 +1,4 @@
+D:\QuickSolve\QuickSolve\x64\Debug\QuickSolve.vcxproj.AssemblyReference.cache
+D:\QuickSolve\QuickSolve\x64\Debug\QuickSolve.Room.resources
+D:\QuickSolve\QuickSolve\x64\Debug\QuickSolve.vcxproj.GenerateResource.cache
+D:\QuickSolve\QuickSolve\x64\Debug\QuickSolve.ReverseDigitsForm.resources
