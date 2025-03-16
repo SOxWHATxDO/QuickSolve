@@ -1,6 +1,7 @@
 #pragma once
 #include "Functions.h"
 #include "ReverseDigitsForm.h"
+#include "State.h"
 #include <chrono>
 
 namespace QuickSolve {
@@ -61,6 +62,7 @@ namespace QuickSolve {
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Button^ switchFormButton;
+	private: System::Windows::Forms::Button^ switchFormula;
 
 
 	protected:
@@ -95,6 +97,7 @@ namespace QuickSolve {
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->switchFormButton = (gcnew System::Windows::Forms::Button());
+			this->switchFormula = (gcnew System::Windows::Forms::Button());
 			this->Formula->SuspendLayout();
 			this->Method->SuspendLayout();
 			this->SuspendLayout();
@@ -251,11 +254,24 @@ namespace QuickSolve {
 			this->switchFormButton->UseVisualStyleBackColor = true;
 			this->switchFormButton->Click += gcnew System::EventHandler(this, &Room::switchFormButton_Click);
 			// 
+			// switchFormula
+			// 
+			this->switchFormula->Font = (gcnew System::Drawing::Font(L"Times New Roman", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->switchFormula->Location = System::Drawing::Point(12, 344);
+			this->switchFormula->Name = L"switchFormula";
+			this->switchFormula->Size = System::Drawing::Size(102, 51);
+			this->switchFormula->TabIndex = 12;
+			this->switchFormula->Text = L"FORMULA";
+			this->switchFormula->UseVisualStyleBackColor = true;
+			this->switchFormula->Click += gcnew System::EventHandler(this, &Room::switchFormula_Click);
+			// 
 			// Room
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(626, 407);
+			this->Controls->Add(this->switchFormula);
 			this->Controls->Add(this->switchFormButton);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
@@ -327,8 +343,12 @@ namespace QuickSolve {
 		callCountLabel->Text = useRecursive ? callCount.ToString() : "N/A";
 	}
 private: System::Void switchFormButton_Click(System::Object^ sender, System::EventArgs^ e) {
-	ReverseDigitsForm^ newForm = gcnew ReverseDigitsForm();
-	newForm->Show();
+	ReverseDigitsForm^ newForm1 = gcnew ReverseDigitsForm();
+	newForm1->Show();
+}
+private: System::Void switchFormula_Click(System::Object^ sender, System::EventArgs^ e) {
+	State^ newForm2 = gcnew State();
+	newForm2->Show();
 }
 };
 }

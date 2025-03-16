@@ -17,7 +17,7 @@ namespace MyFunctions {
         }
         else {
             int sum = 0;
-            for (int i = 1; i < n; ++i) {
+            for (int i = 1; i < n; i++) {
                 sum += recursiveF1(i, callCount);
             }
             result = sum;
@@ -49,34 +49,35 @@ namespace MyFunctions {
         return result;
     }
 
-int MyFunctions::iterativeF1(int n) {
-    if (n < 3) return 1;
-    std::vector<int> f(n + 1);
-    f[1] = 1; f[2] = 1;
-    for (int i = 3; i <= n; ++i) {
-        if (i % 2 != 0) {
-            f[i] = f[i - 1] + f[i - 2];
+    int MyFunctions::iterativeF1(int n) {
+        if (n < 3) return 1;
+        std::vector<int> f(n + 1);
+        f[1] = 1; f[2] = 1;
+        for (int i = 3; i <= n; ++i) {
+            if (i % 2 != 0) {
+                f[i] = f[i - 1] + f[i - 2];
+            }
+            else {
+                int sum = 0;
+                for (int j = 1; j < i; ++j) sum += f[j];
+                f[i] = sum;
+            }
         }
-        else {
-            int sum = 0;
-            for (int j = 1; j < i; ++j) sum += f[j];
-            f[i] = sum;
-        }
+        return f[n];
     }
-    return f[n];
-}
 
-int MyFunctions::iterativeF2(int n) {
-    if (n == 1) return 1;
-    std::vector<int> f(n + 1);
-    f[1] = 1;
-    for (int i = 2; i <= n; ++i) {
-        if (i % 2 == 0) {
-            f[i] = i + f[i - 1];
+    int MyFunctions::iterativeF2(int n) {
+        if (n == 1) return 1;
+        std::vector<int> f(n + 1);
+        f[1] = 1;
+        for (int i = 2; i <= n; ++i) {
+            if (i % 2 == 0) {
+                f[i] = i + f[i - 1];
+            }
+            else {
+                f[i] = 2 * f[i - 1] + f[i - 2];
+            }
         }
-        else {
-            f[i] = 2 * f[i - 1] + f[i - 2];
-        }
+        return f[n];
     }
-    return f[n];
 }

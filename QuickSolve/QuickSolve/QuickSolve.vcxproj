@@ -120,11 +120,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="State.cpp" />
     <ClCompile Include="Functions.cpp" />
     <ClCompile Include="ReverseDigitsForm.cpp" />
     <ClCompile Include="Room.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="State.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Functions.h" />
     <ClInclude Include="ReverseDigitsForm.h">
       <FileType>CppForm</FileType>
@@ -134,6 +138,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="State.resx">
+      <DependentUpon>State.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReverseDigitsForm.resx">
       <DependentUpon>ReverseDigitsForm.h</DependentUpon>
     </EmbeddedResource>
